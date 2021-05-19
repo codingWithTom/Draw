@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		404ECCEE26535360003679DB /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404ECCED26535360003679DB /* Canvas.swift */; };
+		40C38879265344AD0002F23B /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C38878265344AD0002F23B /* Circle.swift */; };
+		40C3887B265345C10002F23B /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3887A265345C10002F23B /* Shape.swift */; };
+		40C3887D26534AB70002F23B /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3887C26534AB70002F23B /* Rectangle.swift */; };
+		40C3887F26534CBB0002F23B /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3887E26534CBB0002F23B /* Triangle.swift */; };
 		40E6CE76265342D900F8F1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CE75265342D900F8F1F1 /* AppDelegate.swift */; };
 		40E6CE78265342D900F8F1F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CE77265342D900F8F1F1 /* SceneDelegate.swift */; };
-		40E6CE7A265342D900F8F1F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CE79265342D900F8F1F1 /* ViewController.swift */; };
 		40E6CE7D265342D900F8F1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E6CE7B265342D900F8F1F1 /* Main.storyboard */; };
 		40E6CE7F265342DA00F8F1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E6CE7E265342DA00F8F1F1 /* Assets.xcassets */; };
 		40E6CE82265342DA00F8F1F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E6CE80265342DA00F8F1F1 /* LaunchScreen.storyboard */; };
+		40E6CE8C265342FB00F8F1F1 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CE8B265342FB00F8F1F1 /* CanvasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		404ECCED26535360003679DB /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		40C38878265344AD0002F23B /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		40C3887A265345C10002F23B /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		40C3887C26534AB70002F23B /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		40C3887E26534CBB0002F23B /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		40E6CE72265342D900F8F1F1 /* Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E6CE75265342D900F8F1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40E6CE77265342D900F8F1F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		40E6CE79265342D900F8F1F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40E6CE7C265342D900F8F1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40E6CE7E265342DA00F8F1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40E6CE81265342DA00F8F1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40E6CE83265342DA00F8F1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40E6CE8B265342FB00F8F1F1 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40C38877265344A10002F23B /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				40C3887A265345C10002F23B /* Shape.swift */,
+				40C38878265344AD0002F23B /* Circle.swift */,
+				40C3887C26534AB70002F23B /* Rectangle.swift */,
+				40C3887E26534CBB0002F23B /* Triangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		40E6CE69265342D900F8F1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +77,33 @@
 		40E6CE74265342D900F8F1F1 /* Draw */ = {
 			isa = PBXGroup;
 			children = (
+				40E6CE89265342E500F8F1F1 /* Scenes */,
 				40E6CE75265342D900F8F1F1 /* AppDelegate.swift */,
 				40E6CE77265342D900F8F1F1 /* SceneDelegate.swift */,
-				40E6CE79265342D900F8F1F1 /* ViewController.swift */,
 				40E6CE7B265342D900F8F1F1 /* Main.storyboard */,
 				40E6CE7E265342DA00F8F1F1 /* Assets.xcassets */,
 				40E6CE80265342DA00F8F1F1 /* LaunchScreen.storyboard */,
 				40E6CE83265342DA00F8F1F1 /* Info.plist */,
 			);
 			path = Draw;
+			sourceTree = "<group>";
+		};
+		40E6CE89265342E500F8F1F1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				40C38877265344A10002F23B /* Shapes */,
+				40E6CE8A265342EB00F8F1F1 /* Canvas */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		40E6CE8A265342EB00F8F1F1 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				40E6CE8B265342FB00F8F1F1 /* CanvasViewController.swift */,
+				404ECCED26535360003679DB /* Canvas.swift */,
+			);
+			path = Canvas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40E6CE7A265342D900F8F1F1 /* ViewController.swift in Sources */,
+				40C3887B265345C10002F23B /* Shape.swift in Sources */,
+				40E6CE8C265342FB00F8F1F1 /* CanvasViewController.swift in Sources */,
+				40C38879265344AD0002F23B /* Circle.swift in Sources */,
+				404ECCEE26535360003679DB /* Canvas.swift in Sources */,
+				40C3887D26534AB70002F23B /* Rectangle.swift in Sources */,
 				40E6CE76265342D900F8F1F1 /* AppDelegate.swift in Sources */,
+				40C3887F26534CBB0002F23B /* Triangle.swift in Sources */,
 				40E6CE78265342D900F8F1F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
