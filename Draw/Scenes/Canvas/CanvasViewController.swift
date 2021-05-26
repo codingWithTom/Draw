@@ -9,6 +9,9 @@ import UIKit
 
 final class CanvasViewController: UIViewController {
   
+  override var canBecomeFirstResponder: Bool { return true }
+  private weak var selectedShape: Shape?
+  
   private var canvas: Canvas = {
     let canvas = Canvas()
     canvas.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +22,7 @@ final class CanvasViewController: UIViewController {
     super.viewDidLoad()
     addCanvas()
     setupViewGestures()
+    configureMenu()
   }
 }
 
@@ -44,6 +48,7 @@ private extension CanvasViewController {
     let size = CGSize(width: 100, height: 100)
     let center = CGPoint(x: view.center.x - size.width / 2, y: view.center.y - size.height / 2)
     let shape = getShape(withCenter: center, size: size)
+    shape.delegate = self
     shape.color = getRandomColor()
     canvas.addSubview(shape)
   }
@@ -67,5 +72,39 @@ private extension CanvasViewController {
   
   func getRandomColor() -> UIColor {
     return [UIColor.blue, .red, .green, .gray, .brown, .orange, .purple, .yellow].randomElement() ?? .black
+  }
+  
+  func configureMenu() {
+    let menuController = UIMenuController.shared
+    menuController.menuItems = [
+      UIMenuItem(title: "Remove", action: #selector(didTapRemove)),
+      UIMenuItem(title: "Change Color", action: #selector(didTapChangeColor))
+    ]
+    menuController.update()
+  }
+  
+  @objc func didTapRemove() {
+    selectedShape?.removeFromSuperview()
+  }
+  
+  @objc func didTapChangeColor() {
+    let colorController = UIColorPickerViewController()
+    colorController.delegate = self
+    present(colorController, animated: true, completion: nil)
+  }
+}
+
+extension CanvasViewController: ShapeDelegate {
+  func didLongPressShape(_ shape: Shape) {
+    selectedShape = shape
+    let menuController = UIMenuController.shared
+    menuController.showMenu(from: canvas, rect: shape.frame)
+  }
+}
+
+extension CanvasViewController: UIColorPickerViewControllerDelegate {
+  func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+    let color = viewController.selectedColor
+    selectedShape?.color = color
   }
 }

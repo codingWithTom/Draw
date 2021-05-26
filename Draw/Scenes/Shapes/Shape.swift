@@ -7,11 +7,20 @@
 
 import UIKit
 
+protocol ShapeDelegate: AnyObject {
+  func didLongPressShape(_ shape: Shape)
+}
+
 class Shape: UIView {
   
   private var offset: CGPoint?
   private var previousScale: CGFloat?
-  var color: UIColor = .red
+  var color: UIColor = .red {
+    didSet {
+      setNeedsDisplay()
+    }
+  }
+  weak var delegate: ShapeDelegate?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -34,6 +43,7 @@ class Shape: UIView {
   private func addGestures() {
     addDragGesture()
     addPinchGesture()
+    addLongPressGesture()
   }
   
   private func addDragGesture() {
@@ -44,6 +54,11 @@ class Shape: UIView {
   private func addPinchGesture() {
     let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(gesture:)))
     addGestureRecognizer(pinchGesture)
+  }
+  
+  private func addLongPressGesture() {
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(gesture:)))
+    addGestureRecognizer(longPress)
   }
   
   @objc
@@ -76,4 +91,9 @@ class Shape: UIView {
     }
   }
   
+  @objc
+  private func didLongPress(gesture: UILongPressGestureRecognizer) {
+    guard gesture.state == .began else { return }
+    delegate?.didLongPressShape(self)
+  }
 }
