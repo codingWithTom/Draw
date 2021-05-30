@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class Rectangle: Shape {
-  override func draw(_ rect: CGRect) {
+extension Shape {
+  func getRectangle(_ rect: CGRect) -> UIBezierPath {
     let path = UIBezierPath()
     let margin: CGFloat = 5
     path.move(to: CGPoint(x: margin, y: margin))
@@ -16,10 +16,6 @@ final class Rectangle: Shape {
     path.addLine(to: CGPoint(x: rect.width - margin, y: rect.height - margin))
     path.addLine(to: CGPoint(x: margin, y: rect.height - margin))
     path.close()
-    color.setFill()
-    path.fill()
-    UIColor.black.setStroke()
-    path.lineWidth = 2
-    path.stroke()
+    return path
   }
 }

@@ -11,10 +11,20 @@ protocol ShapeDelegate: AnyObject {
   func didLongPressShape(_ shape: Shape)
 }
 
-class Shape: UIView {
+final class Shape: UIView {
+  enum Form {
+    case rectangle
+    case triangle
+    case circle
+  }
   
   private var offset: CGPoint?
   private var previousScale: CGFloat?
+  var form: Form = .circle {
+    didSet {
+      setNeedsDisplay()
+    }
+  }
   var color: UIColor = .red {
     didSet {
       setNeedsDisplay()
@@ -30,6 +40,24 @@ class Shape: UIView {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     setup()
+  }
+  
+  override func draw(_ rect: CGRect) {
+    let path: UIBezierPath
+    switch form {
+    case .circle:
+      path = getCirle(rect)
+    case .rectangle:
+      path = getRectangle(rect)
+    case .triangle:
+      path = getTriangle(rect)
+    }
+    
+    color.setFill()
+    path.fill()
+    UIColor.black.setStroke()
+    path.lineWidth = 2
+    path.stroke()
   }
   
   private func setup() {

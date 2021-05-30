@@ -7,20 +7,16 @@
 
 import UIKit
 
-final class Circle: Shape {
+extension Shape {
   
-  var centerPoint: CGPoint {
+  private var centerPoint: CGPoint {
     return CGPoint(x: bounds.midX, y: bounds.midY)
   }
   
-  override func draw(_ rect: CGRect) {
+  func getCirle(_ rect: CGRect) -> UIBezierPath {
     let path = UIBezierPath()
     let radius = rect.width / 2 * 0.95
     path.addArc(withCenter: centerPoint, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
-    color.setFill()
-    path.fill()
-    UIColor.black.setStroke()
-    path.lineWidth = 2
-    path.stroke()
+    return path
   }
 }

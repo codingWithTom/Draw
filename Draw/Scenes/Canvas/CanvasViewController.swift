@@ -56,17 +56,24 @@ private extension CanvasViewController {
   func getShape(withCenter center: CGPoint, size: CGSize) -> Shape {
     let rand = Int.random(in: 1 ... 4)
     if rand == 1 {
-      return Circle(frame: CGRect(origin: center, size: size))
+      let shape = Shape(frame: CGRect(origin: center, size: size))
+      shape.form = .circle
+      return shape
     } else if rand == 2 {
-      return Rectangle(frame: CGRect(origin: center, size: size))
+      let shape = Shape(frame: CGRect(origin: center, size: size))
+      shape.form = .rectangle
+      return shape
     } else if rand == 3 {
       let newSize = CGSize(width: size.width * 1.5, height: size.height)
-      return Rectangle(frame: CGRect(origin: center, size: newSize))
+      let shape = Shape(frame: CGRect(origin: center, size: newSize))
+      shape.form = .rectangle
+      return shape
     } else if rand == 4 {
-      return Triangle(frame: CGRect(origin: center, size: size))
-    }
-    else {
-      return Circle(frame: CGRect(origin: center, size: size))
+      let shape = Shape(frame: CGRect(origin: center, size: size))
+      shape.form = .triangle
+      return shape
+    } else {
+      return Shape(frame: CGRect(origin: center, size: size))
     }
   }
   
