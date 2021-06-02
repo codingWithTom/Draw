@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4028516E26644F7D00BEE92E /* Pentagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028516D26644F7D00BEE92E /* Pentagon.swift */; };
 		404ECCEE26535360003679DB /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404ECCED26535360003679DB /* Canvas.swift */; };
 		40C38879265344AD0002F23B /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C38878265344AD0002F23B /* Circle.swift */; };
 		40C3887B265345C10002F23B /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3887A265345C10002F23B /* Shape.swift */; };
 		40C3887D26534AB70002F23B /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3887C26534AB70002F23B /* Rectangle.swift */; };
 		40C3887F26534CBB0002F23B /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3887E26534CBB0002F23B /* Triangle.swift */; };
+		40D1958326644C0B00B8B12A /* Shape+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D1958226644C0B00B8B12A /* Shape+Gestures.swift */; };
 		40E6CE76265342D900F8F1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CE75265342D900F8F1F1 /* AppDelegate.swift */; };
 		40E6CE78265342D900F8F1F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E6CE77265342D900F8F1F1 /* SceneDelegate.swift */; };
 		40E6CE7D265342D900F8F1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E6CE7B265342D900F8F1F1 /* Main.storyboard */; };
@@ -21,11 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4028516D26644F7D00BEE92E /* Pentagon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pentagon.swift; sourceTree = "<group>"; };
 		404ECCED26535360003679DB /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		40C38878265344AD0002F23B /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		40C3887A265345C10002F23B /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		40C3887C26534AB70002F23B /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		40C3887E26534CBB0002F23B /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		40D1958226644C0B00B8B12A /* Shape+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Gestures.swift"; sourceTree = "<group>"; };
 		40E6CE72265342D900F8F1F1 /* Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E6CE75265342D900F8F1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40E6CE77265342D900F8F1F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 				40C38878265344AD0002F23B /* Circle.swift */,
 				40C3887C26534AB70002F23B /* Rectangle.swift */,
 				40C3887E26534CBB0002F23B /* Triangle.swift */,
+				4028516D26644F7D00BEE92E /* Pentagon.swift */,
+				40D1958226644C0B00B8B12A /* Shape+Gestures.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -177,7 +183,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C3887B265345C10002F23B /* Shape.swift in Sources */,
+				40D1958326644C0B00B8B12A /* Shape+Gestures.swift in Sources */,
 				40E6CE8C265342FB00F8F1F1 /* CanvasViewController.swift in Sources */,
+				4028516E26644F7D00BEE92E /* Pentagon.swift in Sources */,
 				40C38879265344AD0002F23B /* Circle.swift in Sources */,
 				404ECCEE26535360003679DB /* Canvas.swift in Sources */,
 				40C3887D26534AB70002F23B /* Rectangle.swift in Sources */,

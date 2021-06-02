@@ -11,6 +11,7 @@ final class CanvasViewController: UIViewController {
   
   override var canBecomeFirstResponder: Bool { return true }
   private weak var selectedShape: Shape?
+  private var selectedColor: UIColor?
   
   private var canvas: Canvas = {
     let canvas = Canvas()
@@ -54,7 +55,7 @@ private extension CanvasViewController {
   }
   
   func getShape(withCenter center: CGPoint, size: CGSize) -> Shape {
-    let rand = Int.random(in: 1 ... 4)
+    let rand = Int.random(in: 1 ... 5)
     if rand == 1 {
       let shape = Shape(frame: CGRect(origin: center, size: size))
       shape.form = .circle
@@ -72,6 +73,10 @@ private extension CanvasViewController {
       let shape = Shape(frame: CGRect(origin: center, size: size))
       shape.form = .triangle
       return shape
+    } else if rand == 5 {
+        let shape = Shape(frame: CGRect(origin: center, size: size))
+        shape.form = .pentagon
+        return shape
     } else {
       return Shape(frame: CGRect(origin: center, size: size))
     }
@@ -85,7 +90,8 @@ private extension CanvasViewController {
     let menuController = UIMenuController.shared
     menuController.menuItems = [
       UIMenuItem(title: "Remove", action: #selector(didTapRemove)),
-      UIMenuItem(title: "Change Color", action: #selector(didTapChangeColor))
+      UIMenuItem(title: "Change Color", action: #selector(didTapChangeColor)),
+      UIMenuItem(title: "Change Shape", action: #selector(didTapChangeShape))
     ]
     menuController.update()
   }
@@ -99,6 +105,16 @@ private extension CanvasViewController {
     colorController.delegate = self
     present(colorController, animated: true, completion: nil)
   }
+  
+  @objc func didTapChangeShape() {
+    let controller = UIAlertController(title: "Change Shape", message: "Change the form of the shape", preferredStyle: .actionSheet)
+    controller.addAction(UIAlertAction(title: "Triangle", style: .default, handler: { [weak self] _ in self?.selectedShape?.form = .triangle }))
+    controller.addAction(UIAlertAction(title: "Rectangle", style: .default, handler: { [weak self] _ in self?.selectedShape?.form = .rectangle }))
+    controller.addAction(UIAlertAction(title: "Circle", style: .default, handler: { [weak self] _ in self?.selectedShape?.form = .circle }))
+    controller.addAction(UIAlertAction(title: "Pentagon", style: .default, handler: { [weak self] _ in self?.selectedShape?.form = .pentagon }))
+    controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    present(controller, animated: true, completion: nil)
+  }
 }
 
 extension CanvasViewController: ShapeDelegate {
@@ -111,7 +127,11 @@ extension CanvasViewController: ShapeDelegate {
 
 extension CanvasViewController: UIColorPickerViewControllerDelegate {
   func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-    let color = viewController.selectedColor
+    self.selectedColor = viewController.selectedColor
+  }
+  
+  func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+    guard let color = selectedColor else { return }
     selectedShape?.color = color
   }
 }
